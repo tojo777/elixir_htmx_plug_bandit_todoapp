@@ -1,0 +1,20 @@
+<section class="flex flex-col gap-8 mx-auto w-fit px-48">
+  <div class="card bg-neutral text-neutral-content w-[420px]">
+    <div class="card-body">
+      <h2 class="card-title text-center underline">
+          Detail Todo #<%= todo.id %>
+      </h2>
+      <ul>
+        <li>• Description: <span class="text-sm font-medium text-teal-200">
+          <%= todo.note %></span>
+        </li>
+        <li class="flex items-baseline gap-1">• Created At:<span _="on load call dTime('<%= todo.dt %>') put it into my.textContent" class="block text-lime-400 text-[10px] font-mono overflow-hidden whitespace-nowrap w-[33ch]"></span>
+        </li>
+      </ul>
+      <div class="card-actions flex justify-end">
+        <a href="/todos" hx-swap="transition:true" class="-mb-5 btn btn-sm bg-lime-400 hover:bg-lime-300  text-zinc-700">
+          ← Go back
+        </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" />
+
+    <meta
+	    name="htmx-config"
+	    content='{
+            "responseHandling":[
+                {"code":"204", "swap": false},
+                {"code":"[23]..", "swap": true},
+                {"code":"422", "swap": true},
+                {"code":"[45]..", "swap": true, "error":true, "target":"body"},
+                {"code":"...", "swap": true}
+            ]
+        }'
+    />
+    <!-- https://htmx.org/quirks/#by-default-4xx-5xx-responses-do-not-swap
+         https://htmx.org/docs/#response-handling -->
+
+    <title><%= title %></title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/static/assets/css/app.css"/>
+    <script src="/static/assets/js/htmx.min.js"></script>
+    <script src="/static/assets/js/hyperscript.min.js"></script>
+
+    <script>
+      function dTime(dt) {
+        return new Date(dt);
+      }
+      function getYear() {
+        return new Date().getFullYear();
+      }
+    </script>
+</head>
+
+<body class="sample-transition" hx-boost="true">
+    <div hx-trigger="successful-event from:body" hx-get="/todos/flash" class="absolute top-1 right-1 z-10"></div>
+
+    <%= if !String.contains?(title, ["404", "500"]) do %>
+        <header class="fixed top-0 w-full">
+            <nav class="navbar bg-neutral text-neutral-content flex justify-center  gap-4">
+                <a _="on load
+                if location.pathname == '/todos'
+                  add .selected to me
+                end" hx-swap="transition:true" class="btn btn-ghost text-lg" href="/todos">Home</a>
+                <a _="on load
+                if location.pathname == '/todos/about'
+                  add .selected to me
+                end" hx-swap="transition:true" class="btn btn-ghost text-lg" href="/todos/about">About</a>
+            </nav>
+        </header>
+    <% end %>
+
+    <%= if !String.contains?(title, ["404", "500"]) do %>
+        <main class="pt-24">
+            <%= inner_content %>
+        </main>
+    <% else %>
+        <main>
+            <%= inner_content %>
+        </main>
+    <% end %>
+</body>
+
+</html>

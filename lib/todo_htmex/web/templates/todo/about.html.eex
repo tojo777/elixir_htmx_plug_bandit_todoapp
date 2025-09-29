@@ -1,0 +1,20 @@
+<section class="text-center flex flex-col gap-8 mx-auto w-fit px-32">
+  <h1 class="text-center text-3xl font-bold">
+    About
+  </h1>
+  <h3 class="text-xl font-medium text-lime-400 mt-8">
+    Elixir & HTMX Todoapp is a simple task manager so you don't forget anything
+  </h3>
+  <p class="text-slate-500 font-medium mt-14">More Info:</p>
+  <a class="hover:text-teal-600 ease-in duration-300" href="https://github.com/emarifer/elixir_htmx_plug_bandit_todoapp" target="_blank" rel="noopener noreferrer">
+    https://github.com/emarifer/elixir_htmx_plug_bandit_todoapp
+  </a>
+</section>
+
+<div class="absolute bottom-0 left-0 h-12 pl-4 text-start text-sm">
+  <a href="https://github.com/emarifer" target="_blank" rel="noopener noreferrer">
+      ⚡ Made by emarifer&nbsp;
+      <img class="w-8 inline" src="/static/assets/images/github_octocat.png"  alt="GitHub logo" />
+      &nbsp;|&nbsp;&nbsp;Copyright © <span _="on load call getYear() put it into my.textContent"></span> - MIT Licensed
+  </a>
+</div>

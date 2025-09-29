@@ -1,0 +1,14 @@
+<div class="todo">
+    <form hx-patch="/todos/<%= todo.id %>" hx-target="closest .todo" hx-swap="outerHTML" class="flex justify-center items-center gap-6 p-4 border-b border-slate-700 hover:bg-slate-800 rounded-t-lg">
+        <input type="text" name="note" value="<%= todo.note %>" class="input input-bordered text-xs h-6 grow" />
+        <div class="flex justify-center gap-2">
+            <input type="submit" value="Save" class="btn btn-xs btn-outline text-sm" />
+            <!-- see note below -->
+            <a href="#" hx-get="/todos/<%= todo.id %>/show" class="btn btn-xs  btn-error btn-outline text-sm">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+
+<!-- All Ajax requests made from the form have the same target (hx-target="closest .todo"), so the request (GET) to the controller from this anchor does not need to have the target specified. -->

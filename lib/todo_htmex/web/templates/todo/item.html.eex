@@ -1,0 +1,20 @@
+<div id="todo_<%= todo.id %>" class="flex justify-between items-center hover:bg-slate-800 rounded-t-lg p-2 border-b border-slate-700 todo">
+  <div>
+    <div class="flex justify-start gap-2 items-center">
+      <input class="checkbox checkbox-success w-3.5 h-3.5" type="checkbox"  name="ids[]" value="<%= todo.id %>">
+      <a href="/todos/<%= todo.id %>/detail" hx-target="body"  hx-swap="transition:true" class="block text-ellipsis overflow-hidden whitespace-nowrap w-[25ch] hover:underline" title="<%= todo.note %>">
+        <%= todo.note %>
+      </a>
+    </div>
+    <span _="on load call dTime('<%= todo.dt %>') put it into my.textContent" class="block text-lime-400 text-[10px] font-mono overflow-hidden whitespace-nowrap w-[33ch]"></span>
+  </div>
+  <div class="flex justify-start items-center gap-3 w-fit">
+    <button title="Delete Todo" class="btn btn-circle btn-outline btn-xs btn-ghost text-[10px]" hx-target="closest .todo" hx-swap="outerHTML swap:1s"
+      hx-delete="/todos/<%= todo.id %>" hx-confirm="Are you sure you want to delete?">❌</button>
+    <button title="Edit Todo" class="btn btn-circle btn-outline btn-xs btn-ghost test-[10px]" hx-target="closest .todo" hx-swap="outerHTML"
+      hx-get="/todos/<%= todo.id %>/edit">📝</button>
+  </div>
+</div>
+
+
+<!-- <span _="on load call dTime('<%= todo.dt %>') put it into @title then log '<%= todo.dt %>'" class="block text-lime-400 text-[10px] overflow-hidden text-nowrap w-[24.5ch]"></span> -->

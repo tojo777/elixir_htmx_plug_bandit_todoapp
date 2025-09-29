@@ -1,0 +1,45 @@
+<% import TodoHtmex.Web.Todo.Item %>
+
+<section class="flex flex-col gap-8 mx-auto w-fit px-48">
+  <h1 class="text-center text-3xl font-bold">
+    Todo List
+  </h1>
+
+  <%= if length(todos) > 1 do %>
+    <div class="search flex justify-between items-center">
+      <label class="input input-bordered flex items-center gap-2 w-[230px] text-xs h-6">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          class="h-4 w-4 opacity-70">
+          <path
+            fill-rule="evenodd"
+            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+            clip-rule="evenodd" />
+        </svg>
+        <input type="search" name="note" class="grow" placeholder="Type To Search"
+          hx-get="/todos/search"
+          hx-trigger="keyup changed delay:500ms, search"
+          hx-target="#checked-todos"
+          hx-swap="outerHTML" />
+      </label>
+
+      <button hx-include="#checked-todos" hx-target="#checked-todos" hx-put="/todos/completed" hx-confirm="Are you sure you want to perform bulk delete?" class="btn btn-ghost btn-sm" title="Bulk Delete">
+        ✅ Mark completed
+      </button>
+    </div>
+  <% end %>
+
+  <div id="todos" class="flex flex-col gap-6">
+    <form id="checked-todos">
+      <%= for todo <- todos do %>
+        <%= item(todo) %>
+      <% end %>
+    </form>
+
+    <form method="post" action="/todos" class="rounded-xl bg-zinc-900 p-4">
+      <input class="input input-bordered input-primary bg-slate-800 w-[400px] text-sm h-8" type="text" minlength="3" name="note" autofocus placeholder="➕  Add todo ..." />
+    </form>
+  </div>
+</section>
