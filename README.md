@@ -1,6 +1,20 @@
+<div align="center">
+
 # Todoapp with Elixir & Htmx
 
-Simple todo web app demo with Bandit, Plug and Htmx
+Simple todo web app demo with Bandit, Plug and Htmx.
+
+<img src="priv/static/assets/images/logo.png" width="25%">
+
+<br />
+
+![GitHub License](https://img.shields.io/github/license/emarifer/elixir_htmx_plug_bandit_todoapp) ![Static Badge](https://img.shields.io/badge/Elixir-%3E=1.18-6e4a7e) ![Static Badge](https://img.shields.io/badge/Erlang/OTP-%3E=27-B83998)
+
+</div>
+
+<br />
+
+<hr />
 
 ## Installation
 
