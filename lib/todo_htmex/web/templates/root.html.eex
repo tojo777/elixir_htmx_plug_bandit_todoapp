@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/static/assets/css/app.css"/>
     <script src="/static/assets/js/htmx.min.js"></script>
     <script src="/static/assets/js/hyperscript.min.js"></script>
+    <script src="/static/assets/js/sweetalert2@11.min.js"></script>
 
     <script>
       function dTime(dt) {

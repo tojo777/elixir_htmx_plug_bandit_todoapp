@@ -25,7 +25,24 @@
           hx-swap="outerHTML" />
       </label>
 
-      <button hx-include="#checked-todos" hx-target="#checked-todos" hx-put="/todos/completed" hx-confirm="Are you sure you want to perform bulk delete?" class="btn btn-ghost btn-sm" title="Bulk Delete">
+      <button hx-include="#checked-todos" hx-target="#checked-todos" hx-put="/todos/completed" class="btn btn-ghost btn-sm" title="Bulk Delete" hx-confirm="Are you sure you want to perform bulk delete?"
+        onClick="this.addEventListener('htmx:confirm', (e) => {
+                  e.preventDefault()
+                  Swal.fire({
+                      title: 'Confirm',
+                      text: `${e.detail.question}`,
+                      icon: 'warning',
+                      background: '#1D232A',
+                      color: '#A6ADBA',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Yes, delete it!'
+                  }).then((result) => {
+                      if(result.isConfirmed) e.detail.issueRequest(true);
+                  })
+              })"
+      >
         ✅ Mark completed
       </button>
     </div>
