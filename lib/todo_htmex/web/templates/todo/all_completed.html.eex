@@ -1,5 +1,7 @@
 <% import TodoHtmex.Web.Todo.Item %>
 
+<div id="mark-completed" hx-swap-oob="true" class="hidden"></div>
+
 <form id="checked-todos">
     <%= for todo <- todos do %>
         <%= item(todo) %>

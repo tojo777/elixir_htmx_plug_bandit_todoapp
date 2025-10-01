@@ -39,7 +39,20 @@
 </head>
 
 <body class="sample-transition" hx-boost="true">
-    <div hx-trigger="successful-event from:body" hx-get="/todos/flash" class="absolute top-1 right-1 z-10"></div>
+    <div
+        hx-trigger="succ-bulk-del-evt from:body"
+        hx-get="/todos/flash"
+        hx-headers='{"content-msg": "The bulk deletion was completed successfully!"}'
+        class="absolute top-1 right-1 z-10"
+    >
+    </div>
+    <div
+        hx-trigger="succ-todo-del-evt from:body"
+        hx-get="/todos/flash"
+        hx-headers='{"content-msg": "The Todo has been successfully removed!"}'
+        class="absolute top-1 right-1 z-10"
+    >
+    </div>
 
     <%= if !String.contains?(title, ["404", "500"]) do %>
         <header class="fixed top-0 w-full">

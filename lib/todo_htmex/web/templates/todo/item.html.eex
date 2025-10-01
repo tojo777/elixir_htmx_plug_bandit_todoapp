@@ -17,12 +17,12 @@
                 Swal.fire({
                     title: 'Confirm',
                     text: `${e.detail.question}`,
-                    icon: 'warning',
+                    icon: 'question',
                     background: '#1D232A',
-                    color: '#A6ADBA',
+                    color: 'oklch(0.746477 0.0216 264.436)',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
+                    confirmButtonColor: '#7ccf00',
+                    cancelButtonColor: 'oklch(0.7176 0.221 22.18)',
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if(result.isConfirmed) e.detail.issueRequest(true);

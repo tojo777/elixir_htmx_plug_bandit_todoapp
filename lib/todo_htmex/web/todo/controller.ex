@@ -128,7 +128,8 @@ defmodule TodoHtmex.Web.Todo.Controller do
 
     TodoServer.all_todos() |> TodoServer.delete_todo(id)
 
-    conn |> send_resp(201, "")
+    # conn |> send_resp(201, "")
+    send_resp(put_resp_header(conn, "hx-trigger", "succ-todo-del-evt"), 201, "")
   end
 
   # bulk delete
@@ -143,20 +144,22 @@ defmodule TodoHtmex.Web.Todo.Controller do
       TodoServer.all_todos() |> TodoServer.delete_todo(id)
     end)
 
-    # send_resp(
-    #   conn,
-    #   200,
-    #   TodoHtml.search(TodoServer.all_todos()) <>
-    #     TodoHtml.flash("The action was carried out successfully!")
-    # )
-
-    TodoServer.all_todos()
-    |> TodoHtml.search()
-    |> then(&send_resp(put_resp_header(conn, "hx-trigger", "successful-event"), 200, &1))
+    if length(TodoServer.all_todos()) <= 1 do
+      TodoServer.all_todos()
+      |> TodoHtml.all_completed()
+      |> then(&send_resp(put_resp_header(conn, "hx-trigger", "succ-bulk-del-evt"), 200, &1))
+    else
+      TodoServer.all_todos()
+      |> TodoHtml.search()
+      |> then(&send_resp(put_resp_header(conn, "hx-trigger", "succ-bulk-del-evt"), 200, &1))
+    end
   end
 
   get "/flash" do
-    TodoHtml.flash("The bulk deletion was completed successfully!")
+    [msg | []] = get_req_header(conn, "content-msg")
+    Logger.debug("msg - #{inspect(msg)}")
+
+    TodoHtml.flash(msg)
     |> then(&send_resp(conn, 200, &1))
   end
 

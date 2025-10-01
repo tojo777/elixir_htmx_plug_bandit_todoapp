@@ -13,6 +13,11 @@ defmodule TodoHtmex.Web.Todo.Html do
   EEx.function_from_file(:def, :about_html, @template_dir <> "todo/about.html.eex")
   EEx.function_from_file(:def, :detail_html, @template_dir <> "todo/detail.html.eex", [:todo])
   EEx.function_from_file(:def, :search, @template_dir <> "todo/search.html.eex", [:todos])
+
+  EEx.function_from_file(:def, :all_completed, @template_dir <> "todo/all_completed.html.eex", [
+    :todos
+  ])
+
   EEx.function_from_file(:def, :edit, @template_dir <> "todo/edit.html.eex", [:todo])
   EEx.function_from_file(:def, :flash, @template_dir <> "todo/flash.html.eex", [:message])
   EEx.function_from_file(:def, :error_html, @template_dir <> "todo/error.html.eex", [:kind])
