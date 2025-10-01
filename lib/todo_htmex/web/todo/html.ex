@@ -19,7 +19,7 @@ defmodule TodoHtmex.Web.Todo.Html do
   ])
 
   EEx.function_from_file(:def, :edit, @template_dir <> "todo/edit.html.eex", [:todo])
-  EEx.function_from_file(:def, :flash, @template_dir <> "todo/flash.html.eex", [:message])
+  EEx.function_from_file(:def, :flash, @template_dir <> "todo/flash.html.eex", [:kind, :message])
   EEx.function_from_file(:def, :error_html, @template_dir <> "todo/error.html.eex", [:kind])
 
   def index(todos, title) do

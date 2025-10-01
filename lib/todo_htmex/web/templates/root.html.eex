@@ -42,14 +42,21 @@
     <div
         hx-trigger="succ-bulk-del-evt from:body"
         hx-get="/todos/flash"
-        hx-headers='{"content-msg": "The bulk deletion was completed successfully!"}'
+        hx-headers='{"content-msg": "The bulk deletion was completed successfully!", "kind-msg": "success"}'
         class="absolute top-1 right-1 z-10"
     >
     </div>
     <div
         hx-trigger="succ-todo-del-evt from:body"
         hx-get="/todos/flash"
-        hx-headers='{"content-msg": "The Todo has been successfully removed!"}'
+        hx-headers='{"content-msg": "The Todo has been successfully removed!", "kind-msg": "success"}'
+        class="absolute top-1 right-1 z-10"
+    >
+    </div>
+    <div
+        hx-trigger="warn-not-select-evt from:body"
+        hx-get="/todos/flash"
+        hx-headers='{"content-msg": "You have not selected any Todo!", "kind-msg": "warning"}'
         class="absolute top-1 right-1 z-10"
     >
     </div>

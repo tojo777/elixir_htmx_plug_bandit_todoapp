@@ -1,17 +1,28 @@
+<%= if kind == "success" do %>
+    <div
+        _="on load wait 3s then remove me"
+        class="text-center max-w-[350px] px-5 py-3 text-xs text-zinc-800 rounded-lg bg-teal-200 border border-teal-600"
+    >
+        <%= message %>
+    </div>
+<% end %>
+<%= if kind == "warning" do %>
+    <div
+        _="on load wait 3s then remove me"
+        class="text-center max-w-[350px] px-5 py-3 text-xs text-zinc-800 rounded-lg bg-amber-500 border border-amber-800"
+    >
+        <%= message %>
+    </div>
+<% end %>
 
-<div
-    _="on load wait 3s then remove me"
-    class="text-center max-w-[350px] px-5 py-3 text-xs text-zinc-800 rounded-lg bg-teal-200 border border-teal-600"
->
-    <%= message %>
-    <!-- <button _="on click remove the closest <div/>" class="btn btn-circle btn-xs flex justify-center items-center text-zinc-800 bg-transparent border-0 hover:bg-teal-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-5 w-5" fill="none" viewBox="0 0 24 24">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-            </svg>
-    </button> -->
-</div>
+
+<!-- <button _="on click remove the closest <div/>" class="btn btn-circle btn-xs flex justify-center items-center text-zinc-800 bg-transparent border-0 hover:bg-teal-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-5 w-5" fill="none" viewBox="0 0 24 24">
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+        </svg>
+</button> -->

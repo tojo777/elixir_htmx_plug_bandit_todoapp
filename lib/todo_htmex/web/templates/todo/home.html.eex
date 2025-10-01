@@ -46,6 +46,8 @@
         ✅ Mark completed
       </button>
     </div>
+  <% else %>
+    <div id="mark-completed" class="hidden"></div>
   <% end %>
 
   <div id="todos" class="flex flex-col gap-6">

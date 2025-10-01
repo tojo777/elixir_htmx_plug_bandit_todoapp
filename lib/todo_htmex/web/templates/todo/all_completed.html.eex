@@ -1,9 +1,17 @@
 <% import TodoHtmex.Web.Todo.Item %>
 
-<div id="mark-completed" hx-swap-oob="true" class="hidden"></div>
+<%= if length(todos) <= 1 do %>
+    <div id="mark-completed" hx-swap-oob="true" class="hidden"></div>
+<% end %>
 
 <form id="checked-todos">
     <%= for todo <- todos do %>
         <%= item(todo) %>
     <% end %>
 </form>
+
+<!-- REFERENCES:
+https://github.com/urian121/hx-swap-oob-con-python-y-flask
+https://htmx.org/attributes/hx-swap-oob/
+https://hypermedia.systems/tricks-of-the-htmx-masters/#out-of-band-swaps
+ -->

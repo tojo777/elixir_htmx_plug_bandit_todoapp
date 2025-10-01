@@ -9,7 +9,7 @@
     <span _="on load call dTime('<%= todo.dt %>') put it into my.textContent" class="block text-lime-400 text-[10px] font-mono overflow-hidden whitespace-nowrap w-[33ch]"></span>
   </div>
   <div class="flex justify-start items-center gap-3 w-fit">
-    <button title="Delete Todo" class="btn btn-circle btn-outline btn-xs btn-ghost text-[10px]" hx-target="closest .todo" hx-swap="outerHTML swap:1s"
+    <button title="Delete Todo" class="btn btn-circle btn-outline btn-xs btn-ghost text-[10px]" hx-target="#checked-todos"
       hx-delete="/todos/<%= todo.id %>"
       hx-confirm="Are you sure you want to delete the Todo #<%= todo.id %>?"
       onClick="this.addEventListener('htmx:confirm', (e) => {
@@ -38,3 +38,28 @@
 
 
 <!-- <span _="on load call dTime('<%= todo.dt %>') put it into @title then log '<%= todo.dt %>'" class="block text-lime-400 text-[10px] overflow-hidden text-nowrap w-[24.5ch]"></span> -->
+
+<!--
+    <button title="Delete Todo" class="btn btn-circle btn-outline btn-xs btn-ghost text-[10px]" hx-target="closest .todo" hx-swap="outerHTML swap:1s"
+      hx-delete="/todos/<%= todo.id %>"
+      hx-confirm="Are you sure you want to delete the Todo #<%= todo.id %>?"
+      onClick="this.addEventListener('htmx:confirm', (e) => {
+                e.preventDefault()
+                Swal.fire({
+                    title: 'Confirm',
+                    text: `${e.detail.question}`,
+                    icon: 'question',
+                    background: '#1D232A',
+                    color: 'oklch(0.746477 0.0216 264.436)',
+                    showCancelButton: true,
+                    confirmButtonColor: '#7ccf00',
+                    cancelButtonColor: 'oklch(0.7176 0.221 22.18)',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if(result.isConfirmed) e.detail.issueRequest(true);
+                })
+            })"
+      >
+        ❌
+      </button>
+ -->

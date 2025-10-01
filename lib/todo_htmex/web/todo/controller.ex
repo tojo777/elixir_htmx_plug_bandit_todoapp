@@ -129,7 +129,11 @@ defmodule TodoHtmex.Web.Todo.Controller do
     TodoServer.all_todos() |> TodoServer.delete_todo(id)
 
     # conn |> send_resp(201, "")
-    send_resp(put_resp_header(conn, "hx-trigger", "succ-todo-del-evt"), 201, "")
+    # send_resp(put_resp_header(conn, "hx-trigger", "succ-todo-del-evt"), 201, "")
+
+    TodoServer.all_todos()
+    |> TodoHtml.all_completed()
+    |> then(&send_resp(put_resp_header(conn, "hx-trigger", "succ-todo-del-evt"), 200, &1))
   end
 
   # bulk delete
@@ -138,28 +142,32 @@ defmodule TodoHtmex.Web.Todo.Controller do
 
     Logger.debug("bulk delete - #{inspect(bparams)}")
 
-    bparams["ids"]
-    |> Enum.map(fn id ->
-      id = String.to_integer(id)
-      TodoServer.all_todos() |> TodoServer.delete_todo(id)
-    end)
+    case bparams["ids"] do
+      nil ->
+        TodoServer.all_todos()
+        |> TodoHtml.all_completed()
+        |> then(&send_resp(put_resp_header(conn, "hx-trigger", "warn-not-select-evt"), 200, &1))
 
-    if length(TodoServer.all_todos()) <= 1 do
-      TodoServer.all_todos()
-      |> TodoHtml.all_completed()
-      |> then(&send_resp(put_resp_header(conn, "hx-trigger", "succ-bulk-del-evt"), 200, &1))
-    else
-      TodoServer.all_todos()
-      |> TodoHtml.search()
-      |> then(&send_resp(put_resp_header(conn, "hx-trigger", "succ-bulk-del-evt"), 200, &1))
+      _ ->
+        bparams["ids"]
+        |> Enum.map(fn id ->
+          id = String.to_integer(id)
+          TodoServer.all_todos() |> TodoServer.delete_todo(id)
+        end)
+
+        TodoServer.all_todos()
+        |> TodoHtml.all_completed()
+        |> then(&send_resp(put_resp_header(conn, "hx-trigger", "succ-bulk-del-evt"), 200, &1))
     end
   end
 
   get "/flash" do
     [msg | []] = get_req_header(conn, "content-msg")
+    [kind | []] = get_req_header(conn, "kind-msg")
     Logger.debug("msg - #{inspect(msg)}")
+    Logger.debug("kind - #{inspect(kind)}")
 
-    TodoHtml.flash(msg)
+    TodoHtml.flash(kind, msg)
     |> then(&send_resp(conn, 200, &1))
   end
 
