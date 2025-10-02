@@ -61,7 +61,20 @@
     view-transition-name: slide-it;
 }
 
+/* active link in navbar */
 .selected {
     text-decoration-line: underline;
     text-underline-offset: 4px;
+}
+
+/* custom scrollbar */
+.scroller {
+    scrollbar-gutter: stable;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+    transition: scrollbar-color 2s ease-in-out;
+}
+
+.scroller:hover {
+    scrollbar-color: #45556c transparent;
 }

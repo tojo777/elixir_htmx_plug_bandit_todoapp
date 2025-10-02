@@ -51,7 +51,7 @@
   <% end %>
 
   <div id="todos" class="flex flex-col gap-6">
-    <form id="checked-todos">
+    <form id="checked-todos" class="overflow-auto max-h-72 scroller">
       <%= for todo <- todos do %>
         <%= item(todo) %>
       <% end %>

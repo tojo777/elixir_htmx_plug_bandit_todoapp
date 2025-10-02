@@ -7,10 +7,12 @@ defmodule TodoHtmex.Application do
 
   @impl true
   def start(_type, _args) do
+    port = Application.get_env(:todo_htmex, :port)
+
     children = [
       # Starts a worker by calling: TodoHtmex.Worker.start_link(arg)
       # {TodoHtmex.Worker, arg}
-      {Bandit, plug: TodoHtmex.Web.Router},
+      {Bandit, scheme: :http, plug: TodoHtmex.Web.Router, port: port},
       {TodoHtmex.Todo.Server, nil}
     ]
 
