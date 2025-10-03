@@ -66,6 +66,8 @@ Simple todo web app demo with Bandit, Plug and Htmx (no Phoenix).
     ```
     $ cd assets/
 
+    $ npm i
+
     $ npm run build-css-prod
     ```
 
@@ -98,10 +100,13 @@ Simple todo web app demo with Bandit, Plug and Htmx (no Phoenix).
 ### 📚 Learn more
 
   - Official website: https://elixir-lang.org/
+  - Elixir Docs: https://hexdocs.pm/elixir/introduction.html
   - Elixir School: https://elixirschool.com/
   - Elixir Forum: https://elixirforum.com/
   - Plug: https://hexdocs.pm/plug/readme.html
   - Bandit: https://hexdocs.pm/bandit/Bandit.html
+  - Htmx: https://htmx.org/
+  - Hyperscript: https://hyperscript.org/
 
 ---
 
