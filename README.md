@@ -71,7 +71,7 @@ Simple todo web app demo with Bandit, Plug and Htmx (no Phoenix).
     $ npm run build-css-prod
     ```
 
-    You can now start the `Bandit` server with:
+    Returning to the project root, you can now start the `Bandit` server with:
 
     ```
     $ mix run --no-halt
