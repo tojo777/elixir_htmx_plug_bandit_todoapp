@@ -41,6 +41,7 @@ Simple todo web app demo with Bandit, Plug and Htmx (no Phoenix).
 - [x] **Tailwind CSS & daisyUI:** Finally, [`Tailwind CSS`](https://v3.tailwindcss.com/) and [`daisyUI`](https://v4.daisyui.com/) are used to style HTML markup. `Tailwind CSS` is the most widely used CSS framework today, and in conjunction with the `daisyUI` CSS component library, they facilitate rapid creation of beautiful web interfaces.
 
 - [x] **Some features of the application UI:**
+  - Caching via GenServer, maintaining a concurrently accessible state
   - Inline editing row
   - Live search without Ajax
   - Bulk updating multiple rows
